@@ -1,14 +1,53 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <div class="fondo" text-center>
+    <h1>Control y Seguimiento de Actividades del Plan Estratègico Institucional</h1>
+    <img src="../assets/UCB2.gif">
+  </div>
+  
+  <div *ngIf=" role_id == 1 ">    
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="directores">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Directores</ion-label>
+        </ion-tab-button>
+        
+        <ion-tab-button tab="carreras">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Carreras</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+  <div *ngIf=" role_id == 2 ">    
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="docentes">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Docentes</ion-label>
+        </ion-tab-button>
+        
+        <ion-tab-button tab="indicadores">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Indicadores</ion-label>
+        </ion-tab-button>
+        
+        <ion-tab-button tab="seguimientos">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Seguimientos</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+  
+  <div *ngIf=" role_id == 3 ">    
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="indicadores">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Indicadores</ion-label>
+        </ion-tab-button> 
+      </ion-tab-bar>
+    </ion-tabs>
   </div>
 </ion-content>

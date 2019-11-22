@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title >Indicadores</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-select okText="Seleccionar" cancelText="Cancelar" placeholder="Seleccionar carrera" (ionChange)="onChange($event)" >
+      <ion-select-option *ngFor="let career of careers" value="{{career.id}}">{{career.name}}</ion-select-option>
+    </ion-select>
+  </ion-list>
+  <div *ngIf=" indicators ">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="1">
+          <div>
+            #
+          </div>
+        </ion-col>
+        <ion-col size="11">
+          <div class="ion-align-items-center">
+            Nombre
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let indicator of indicators" class="ion-align-items-center">
+        <ion-col size="1">
+          <div>
+            {{indicator.id}}
+          </div>
+        </ion-col>
+        <ion-col size="11">
+          <div>
+            {{indicator.name}}
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
