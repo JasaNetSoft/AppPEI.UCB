@@ -16,13 +16,21 @@ export class IndicatorsService {
     private http: HttpClient,
   ) {}
 
-  getIndicators(ACCESS_TOKEN: string, id_career: number): Observable<Indicators>{
+  getIndicators(ACCESS_TOKEN: string, id_career: number,role_id: number,id_user: number): Observable<Indicators>{
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     headers = headers.set('Authorization',ACCESS_TOKEN);    
     
-    return this.http
-    .post<Indicators>(`${this.AUTH_SERVER_ADDRESS}/api/indicators`
-                      ,{id: id_career}, {headers})
-    .pipe();
+    if(role_id==2){
+      return this.http
+      .post<Indicators>(`${this.AUTH_SERVER_ADDRESS}/api/indicators`
+                        ,{id: id_career}, {headers})
+      .pipe();
+    }
+    if(role_id==3){
+      return this.http
+      .post<Indicators>(`${this.AUTH_SERVER_ADDRESS}/api/indicators_teacher_activities`
+                        ,{id: id_career,id_user: id_user}, {headers})
+      .pipe();
+    }
   }
 }

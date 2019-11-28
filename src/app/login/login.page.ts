@@ -14,7 +14,8 @@ export class LoginPage implements OnInit {
   message : string;
   constructor(
     private loginService: LoginService,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.loginService.logout();
@@ -26,7 +27,7 @@ export class LoginPage implements OnInit {
         (res)=>{
           this.router.navigateByUrl('home');
         }, (error)=> {
-          this.message = "correo o contraseña incorrecta" + error
+          this.message = "correo o contraseña incorrecta"
         }
       );
   }

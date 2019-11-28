@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Storage } from '@ionic/storage';
+import { ModalController } from '@ionic/angular';
 
 import { CareersService } from '../careers/careers.service';
 import { Careers } from '../careers/careers';
 import { TeachersService } from './teachers.service';
 import { Teachers } from './teachers';
+import { ModalPage} from '../modal/modal.page';
 
 @Component({
   selector: 'app-teachers',
@@ -14,37 +16,47 @@ import { Teachers } from './teachers';
 })
 export class TeachersPage implements OnInit {
   careers: Careers;
-  teachers: Teachers;
+  teachers: any;
   constructor(
     private careersService: CareersService,
     private teachersService: TeachersService,
-    private storage: Storage
-  ) { }
+    private storage: Storage,
+    public modalController: ModalController,
+    ) { }
+    
+    ngOnInit() {
+      this.get_teachers();
+    }
+    
+    get_teachers(){
+      this.storage.get("ACCESS_TOKEN").then((ACCESS_TOKEN)=>{
+        this.storage.get("id").then((id) => {
+          this.teachersService.getTeachers(ACCESS_TOKEN,id)
+            .subscribe((teachers)=>{
+              this.teachers = teachers;
+              let tamanio = this.teachers.length;
+              for(let j = 0; j < tamanio; j++){
+                for(let k = j+1; k < tamanio-1; k++){
+                  if(this.teachers[j].id==this.teachers[k].id){
+                    this.teachers.splice(k,1);
+                  }
+                }
+              }
+            }
+          );
+        });
+      });
+    }
 
-  ngOnInit() {
-    this.get_teachers();
+    async presentModal(teacher: Teachers) {
+      const modal = await this.modalController.create({
+        component: ModalPage,
+        cssClass: 'my-custom-modal-css',
+        componentProps: {
+          'teacher': teacher,
+        }
+      });
+      return await modal.present();
+    }
   }
-
-  get_teachers(){
-    // this.storage.get("ACCESS_TOKEN").then((ACCESS_TOKEN)=>{
-    //   this.storage.get("id").then((id) => {
-    //     this.careersService.getCareersUser(ACCESS_TOKEN, id)
-    //     .subscribe(careers=> {
-    //       this.careers = careers;
-          
-    //     } );
-    //   });
-    // });
-    this.storage.get("ACCESS_TOKEN").then((ACCESS_TOKEN)=>{
-      this.teachersService.getTeachers(ACCESS_TOKEN,[1,5])
-      .subscribe((teachers)=>{
-        this.teachers = teachers
-        console.log(JSON.stringify(this.teachers));
-      }, (error)=> {
-        console.log(error);
-      }
-      );
-    });
-  }
-
-}
+  

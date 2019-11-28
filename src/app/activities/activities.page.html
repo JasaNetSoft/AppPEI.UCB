@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Actividades del indicador</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/indicadores"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollX=True>
+  <ion-grid>
+    <ion-row class="ion-text-center" >
+      <ion-col offset-md="3" size-md="6" size-lg="6" size-xs="12">
+        <ion-item>
+          INDICADOR: {{name}}    
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row class="ion-text-center" scrollable="true">
+      <ion-col size="10">
+        <div class="ion-text-center">
+          Nombre
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div class="ion-text-center">
+          ver
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let activitie of activities" class="ion-justify-content-center">
+      <ion-col size="10">
+        <div>
+          {{activitie.name}}
+        </div>
+      </ion-col>
+      <ion-col size-md="2" size-lg="2" size-xs="2">
+        <ion-button (click)="presentModal(activitie)">
+          <ion-icon name="eye"></ion-icon>
+        </ion-button> 
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

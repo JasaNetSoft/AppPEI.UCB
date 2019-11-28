@@ -4,18 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DtcCareersPageRoutingModule } from './dtc-careers-routing.module';
+import { ActivitiesPageRoutingModule } from './activities-routing.module';
 
-import { DtcCareersPage } from './dtc-careers.page';
+import { ActivitiesPage } from './activities.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DtcCareersPageRoutingModule
+    ActivitiesPageRoutingModule
   ],
-  declarations: [DtcCareersPage],
-  entryComponents: []
+  declarations: [ActivitiesPage],
+  entryComponents: [] 
 })
-export class DtcCareersPageModule {}
+export class ActivitiesPageModule {}

@@ -1,23 +1,26 @@
 <ion-header text-center>
   <ion-toolbar>
     <ion-title class="ion-text-center">Carreras</ion-title>
+    <ion-button slot="end" routerLink="/"> 
+      <ion-icon name="log-out"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-grid>
     <ion-row class="ion-align-items-center">
-      <ion-col size="1" offset="2">
-          Id
+      <ion-col size="2" offset="2" align-self-center style="background-color: black;color: white;">
+          Id  
       </ion-col>
-      <ion-col size="6" offset="2" class="align-self-center"    >
+      <ion-col size="6" style="background-color: black;color: white;">
           Nombres
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let career of careers">
-      <ion-col size="1" offset="2">
+      <ion-col size="2" offset="2">
           {{career.id}}
       </ion-col>
-      <ion-col size="6" offset="1">
+      <ion-col size="6" >
           {{career.name}}
       </ion-col>
     </ion-row>

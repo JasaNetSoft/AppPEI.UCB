@@ -1,8 +1,12 @@
 <ion-content>
-  <div class="fondo" text-center>
-    <h1>Control y Seguimiento de Actividades del Plan Estratègico Institucional</h1>
-    <img src="../assets/UCB2.gif">
-  </div>
+  <ion-grid> 
+    <ion-row color="primary" class="ion-justify-content-center">
+      <div class="ion-text-center">
+        <h1>Control y Seguimiento de Actividades <br> del Plan Estratègico Institucional</h1>
+        <img src="../assets/UCB2.gif">
+      </div>
+    </ion-row>
+  </ion-grid>
   
   <div *ngIf=" role_id == 1 ">    
     <ion-tabs>
@@ -11,7 +15,6 @@
           <ion-icon name="calendar"></ion-icon>
           <ion-label>Directores</ion-label>
         </ion-tab-button>
-        
         <ion-tab-button tab="carreras">
           <ion-icon name="calendar"></ion-icon>
           <ion-label>Carreras</ion-label>

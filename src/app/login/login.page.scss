@@ -1,20 +1,11 @@
-$white-color: #fff;
-$height100: 100%;
-
-ion-grid {
-    width:100%;
-    height: $height100;
-    padding-top: 40%;
-    background: #dfdfdf;
-}
-
-ion-row {
-    height: $height100;
+ion-content {
+    --background: url("../../assets/fondo2.jpeg") no-repeat top/cover fixed;
 }
 
 ion-col {
     border: 1px solid #488aff;
-    background: $white-color;
+    border-radius: 30px;
+    background: white;
 }
 
 ion-button {
@@ -27,9 +18,13 @@ span{
 
 @media (min-width: 240px) and (max-width: 768px) {
     ion-grid {
-        background: $white-color;
+        padding-top: 10%;
     }
     ion-col {
         border: none;
+    }
+
+    img{
+        height: 200px;
     }
 }

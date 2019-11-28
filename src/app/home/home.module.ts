@@ -2,74 +2,43 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { DtcCareersPage } from '../dtc-careers/dtc-careers.page';
+import { CareersPage } from '../careers/careers.page';
+import { TeachersPage } from '../teachers/teachers.page';
+import { IndicatorsPage } from '../indicators/indicators.page';
+import { TracingPage } from '../tracing/tracing.page';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: HomePage,
+    children: [
+      { path: '', redirectTo: '', pathMatch: 'full'},
+      { path: 'directores', component: DtcCareersPage },
+      { path: 'carreras', component: CareersPage },
+      { path: 'docentes', component: TeachersPage },
+      { path: 'indicadores', component: IndicatorsPage },
+      { path: 'seguimientos', component: TracingPage},
+    ]
+  }
+]
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage,
-        children: [
-          {
-            path: '',
-            redirectTo: '',
-            pathMatch: 'full'
-          },
-          {
-            path: 'directores',
-            children: [
-              {
-                path: '',
-                loadChildren: '../dtc-careers/dtc-careers.module#DtcCareersPageModule'
-              }
-            ],
-          },
-          {
-            path: 'carreras',
-            children: [
-              {
-                path: '',
-                loadChildren: '../careers/careers.module#CareersPageModule'
-              }
-            ],
-          },
-          {
-            path: 'docentes',
-            children: [
-              {
-                path: '',
-                loadChildren: '../teachers/teachers.module#TeachersPageModule'
-              }
-            ],
-          },
-          {
-            path: 'indicadores',
-            children: [
-              {
-                path: '',
-                loadChildren: '../indicators/indicators.module#IndicatorsPageModule'
-              }
-            ],
-          },
-          {
-            path: 'seguimientos',
-            children: [
-              {
-                path: '',
-                loadChildren: '../tracing/tracing.module#TracingPageModule'
-              }
-            ],
-          },
-        ]
-      }
-    ])
+    RouterModule.forChild(routes)
   ],
-  declarations: [HomePage]
+  declarations: [
+    DtcCareersPage,
+    CareersPage,
+    TeachersPage,
+    IndicatorsPage,
+    TracingPage, 
+    HomePage]
 })
 export class HomePageModule {}

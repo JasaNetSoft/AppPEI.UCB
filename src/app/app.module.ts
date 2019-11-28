@@ -12,9 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule }    from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 
+import { ModalPage} from './modal/modal.page';
+
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, ModalPage],
+  entryComponents: [ModalPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     HttpClientModule,
     IonicStorageModule.forRoot(),

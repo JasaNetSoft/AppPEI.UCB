@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <div *ngIf="activitie">
+      <ion-title class="ion-text-center">Detalles de actividad</ion-title>
+    </div>
+    <div *ngIf="dtcCareer">
+      <ion-title class="ion-text-center">Detalles de director</ion-title>
+    </div>
+    <div *ngIf="teacher">
+      <ion-title class="ion-text-center">Detalles de docente</ion-title>
+    </div>
+    <div *ngIf="teacher">
+      <ion-title class="ion-text-center">Detalles actividad</ion-title>
+    </div>
+    <ion-button (click)="dismiss()" slot="end"> 
+      <ion-icon name="close-circle"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="activitie">
+    <ion-grid>
+      <ion-col size="12">
+        {{activitie.name}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Fecha de inicio: {{activitie.dateIni}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Fecha final:  {{activitie.dateFin}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Evidencia: {{activitie.evidence}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Cumplimiento:  {{activitie.fulfillment}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Observaciones: {{activitie.observation}}
+      </ion-col>
+    </ion-grid>
+  </div>
+  <div *ngIf="dtcCareer">
+    <ion-grid>
+      <ion-col size="12">
+        {{dtcCareer.name}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Email: {{dtcCareer.email}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">Carreras</ion-col><br>
+    </ion-grid>
+    <ion-grid *ngFor="let career of dtcCareer.careers">
+      <ion-col size="12" >
+        {{career.name}}
+      </ion-col>
+    </ion-grid>
+  </div>
+  <div *ngIf="teacher">
+    <ion-grid>
+      <ion-col size="12">
+        Nombre: {{teacher.name}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Email: {{teacher.email}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Desactivador: {{teacher.deactivated}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">Carreras</ion-col><br>
+    </ion-grid>
+    <ion-grid *ngFor="let career of teacher.careers">
+      <ion-col size="12" >
+        {{career.name}}
+      </ion-col>
+    </ion-grid>
+  </div>
+  <div *ngIf="tracing">
+    <ion-grid>
+      <ion-col size="12">
+        Actividad: {{tracing.name}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Dia Inicial: {{tracing.dateIni}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Dia Final: {{tracing.dateFin}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Evidencia: {{tracing.evidence}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Cumplimiento: {{tracing.fulfillment}}
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Observacion: {{tracing.observation}}
+      </ion-col>
+    </ion-grid>
+  </div>
+</ion-content>

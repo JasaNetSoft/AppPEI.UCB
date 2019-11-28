@@ -1,24 +1,35 @@
-<ion-header text-center>
+<ion-header>
   <ion-toolbar>
-    <ion-title class="ion-text-center">teachers</ion-title>
+    <ion-title class="ion-text-center">Docentes</ion-title>
+    <ion-button slot="end" routerLink="/"> 
+      <ion-icon name="log-out"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-grid>
-    <ion-row class="ion-align-items-center">
-      <ion-col size="1" offset="2">
-        Id
-      </ion-col>
-      <ion-col size="6" offset="2" class="align-self-center"    >
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="3" size-lg="3" size-xs="4" style="background-color: black;color: white;">
         Nombres
       </ion-col>
-    </ion-row>
-    <ion-row *ngFor="let career of careers">
-      <ion-col size="1" offset="2">
-        {{career.id}}
+      <ion-col size-md="3" size-lg="3" size-xs="6" style="background-color: black;color: white;">
+        Email
       </ion-col>
-      <ion-col size="6" offset="1">
-        {{career.name}}
+      <ion-col size-md="2" size-lg="2" size-xs="2" style="background-color: black;color: white;">
+        ver
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let teacher of teachers" class="ion-justify-content-center">
+      <ion-col size-md="3" size-lg="3" size-xs="4" >
+        {{teacher.name}}
+      </ion-col>
+      <ion-col size-md="3" size-lg="3" size-xs="6" >
+        {{teacher.email}}
+      </ion-col>
+      <ion-col size-md="2" size-lg="2" size-xs="2">
+        <ion-button (click)="presentModal(teacher)">
+          <ion-icon name="eye"></ion-icon>
+        </ion-button> 
       </ion-col>
     </ion-row>
   </ion-grid>

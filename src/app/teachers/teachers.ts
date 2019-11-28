@@ -3,5 +3,10 @@ export interface Teachers {
   name: string,
   email: string,
   deactivated: boolean,
-  
+  careers:[
+    {
+      id: number,
+      name: string
+    }
+  ]
 }

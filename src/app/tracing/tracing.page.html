@@ -1,9 +1,42 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tracing</ion-title>
+    <ion-title class="ion-text-center">Seguimiento de Usuarios</ion-title>
+    <ion-button slot="end" routerLink="/"> 
+      <ion-icon name="log-out"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item lines="full">
+      <ion-label position="floating">Docente</ion-label> 
+      <ion-select okText="Seleccionar" cancelText="Cancelar" placeholder="Seleccionar docente" (ionChange)="onChange($event)" >
+        <ion-select-option value={{id}}>{{name}}</ion-select-option> 
+        <ion-select-option *ngFor="let teacher of teachers" value="{{teacher.id}}">{{teacher.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="tracings">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="10">
+          Nombre
+        </ion-col>
+        <ion-col size="2">
+          Ver
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let tracing of tracings" class="ion-align-items-center">
+        <ion-col size="10">
+          {{tracing.name}}
+        </ion-col>
+        <ion-col size-md="2" size-lg="2" size-xs="2">
+          <ion-button (click)="presentModal(tracing)">
+            <ion-icon name="eye"></ion-icon>
+          </ion-button> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

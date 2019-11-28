@@ -1,4 +1,4 @@
-export interface Tracing {
+export interface Activities {
   id: number,
   name: string,
   dateIni: string,
@@ -6,4 +6,4 @@ export interface Tracing {
   evidence: string,
   fulfillment: string,
   observation: string,
-}
+} 

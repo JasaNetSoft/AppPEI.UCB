@@ -4,18 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DtcCareersPageRoutingModule } from './dtc-careers-routing.module';
+import { ModalPageRoutingModule } from './modal-routing.module';
 
-import { DtcCareersPage } from './dtc-careers.page';
+import { ModalPage } from './modal.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DtcCareersPageRoutingModule
+    ModalPageRoutingModule
   ],
-  declarations: [DtcCareersPage],
-  entryComponents: []
+  declarations: [ModalPage]
 })
-export class DtcCareersPageModule {}
+export class ModalPageModule {}

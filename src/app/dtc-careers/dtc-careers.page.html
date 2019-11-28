@@ -1,54 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="ion-text-center">dtc_careers</ion-title>
+    <ion-title class="ion-text-center">Directores</ion-title>
+    <ion-button slot="end" routerLink="/"> 
+      <ion-icon name="log-out"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-grid>
     <ion-row class="ion-align-items-center">
-      <ion-col size="1">
-        <div>
-          Id
-        </div>
+      <ion-col size-md="2" size-lg="2" size-xs="4" style="background-color: black;color: white;">
+        Nombres
       </ion-col>
-      <ion-col size="3">
-        <div>
-          Nombres
-        </div>
+      <ion-col size-md="2" size-lg="2" size-xs="6" style="background-color: black;color: white;">
+        Email
       </ion-col>
-      <ion-col size="4">
-        <div>
-          Email
-        </div>
-      </ion-col>
-      <ion-col size="4">
-        <div>
-          Carreras
-        </div>
+      <ion-col size-md="2" size-lg="2" size-xs="2" style="background-color: black;color: white;">
+        ver
       </ion-col>
     </ion-row>
-  </ion-grid>
-  <ion-grid>
-    <ion-row *ngFor="let name of dtcCareers" class="ion-align-items-center">
-      <ion-col size="1">
-        <div>
-          {{name.id}}
-        </div>
+    <ion-row *ngFor="let dtcCareer of dtcCareers">
+      <ion-col size-md="2" size-lg="2" size-xs="4">
+        {{dtcCareer.name}}
       </ion-col>
-      <ion-col size="3">
-        <div>
-          {{name.name}}
-        </div>
+      <ion-col size-md="2" size-lg="2" size-xs="6">
+        {{dtcCareer.email}}
       </ion-col>
-      <ion-col size="4">
-        <div>
-          {{name.email}}
-        </div>
-      </ion-col>
-      <ion-col size="4">
-        <div>
-          {{name.email}}
-        </div>
+      <ion-col size-md="2" size-lg="2" size-xs="2">
+        <ion-button (click)="presentModal(dtcCareer)">
+          <ion-icon name="eye"></ion-icon>
+        </ion-button> 
       </ion-col>
     </ion-row>
   </ion-grid>
