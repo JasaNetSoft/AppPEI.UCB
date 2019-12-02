@@ -52,7 +52,6 @@ export class ActivitiesPage implements OnInit {
           this.activities = data[0];
           this.activities_user = data[1];
           this.users = data[2];
-          
         });
     });
   }

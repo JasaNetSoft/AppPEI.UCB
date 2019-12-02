@@ -41,7 +41,6 @@ export class HomePage {
         this.notificationsService.getUserNotifications(ACCESS_TOKEN,id)
         .subscribe(notifications=> {
           this.notifications = notifications;
-          console.log(JSON.stringify(this.notifications));
           for(var _i = 0; _i < this.notifications.length; _i++){
             var date_data = new Date(this.notifications[_i].date);
             var year = date_data.getUTCFullYear()

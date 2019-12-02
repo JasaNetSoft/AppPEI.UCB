@@ -19,7 +19,7 @@ import { ActivitiesPage } from '../activities/activities.page';
 })
 export class IndicatorsPage implements OnInit {
   careers: Careers;
-  indicators: Indicators;
+  indicators: any;
   selectedValue: number;
   constructor(
     private careersService:CareersService,
@@ -51,6 +51,9 @@ export class IndicatorsPage implements OnInit {
           this.indicatorsService.getIndicators(ACCESS_TOKEN,this.selectedValue,role_id,id)
           .subscribe(indicators=> {
             this.indicators = indicators;
+            if(this.indicators.length == 0){
+              this.indicators = null
+            }
           });
         });
       });

@@ -22,6 +22,8 @@ export class TracingPage implements OnInit {
   teachers: any;
   selectedValue: number;
   tracings: any;
+  activities_user: any;
+  users: any;
 
   constructor(
     private tracingService: TracingService,
@@ -67,8 +69,10 @@ export class TracingPage implements OnInit {
     this.selectedValue = event.target.value;
     this.storage.get("ACCESS_TOKEN").then((ACCESS_TOKEN) => {
       this.tracingService.getActivitiesDTC(ACCESS_TOKEN,this.selectedValue)
-        .subscribe((tracings)=>{
-          this.tracings = tracings;
+        .subscribe((data)=>{
+          this.tracings = data[0];
+          this.activities_user = data[1];
+          this.users = data[2];
           if(this.tracings.length == 0){
             this.tracings = null
           }
@@ -82,6 +86,8 @@ export class TracingPage implements OnInit {
       cssClass: 'my-custom-modal-css',
       componentProps: {
         'tracing': tracing,
+        'activities_user': this.activities_user,
+        'users': this.users
       }
     });
     return await modal.present();

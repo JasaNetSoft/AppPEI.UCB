@@ -143,5 +143,21 @@
         Observacion: {{tracing.observation}}
       </ion-col>
     </ion-grid>
+    <ion-grid>
+        <ion-col size="6">
+          Encargados: 
+        </ion-col>
+        <ion-col size="6">
+          <div *ngFor="let activitieUser of activities_user">
+            <div *ngIf="activitieUser.activity_id == tracing.id ">
+              <div *ngFor="let user of users">
+                <div *ngIf="user.id == activitieUser.user_id ">
+                  {{user.name}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-grid>
   </div>
 </ion-content>
