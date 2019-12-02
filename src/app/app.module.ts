@@ -14,6 +14,8 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { ModalPage} from './modal/modal.page';
 
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 @NgModule({
   declarations: [AppComponent, ModalPage],
   entryComponents: [ModalPage],
@@ -24,6 +26,7 @@ import { ModalPage} from './modal/modal.page';
   providers: [
     StatusBar,
     SplashScreen,
+    LocalNotifications,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content scrollX=True>
+<ion-content>
   <ion-grid>
     <ion-row class="ion-text-center" >
       <ion-col offset-md="3" size-md="6" size-lg="6" size-xs="12">
@@ -16,7 +16,9 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    
+  </ion-grid>
+  
+  <ion-grid>          
     <ion-row class="ion-text-center" scrollable="true">
       <ion-col size="10">
         <div class="ion-text-center">
@@ -29,18 +31,37 @@
         </div>
       </ion-col>
     </ion-row>
-    <ion-row *ngFor="let activitie of activities" class="ion-justify-content-center">
-      <ion-col size="10">
-        <div>
-          {{activitie.name}}
-        </div>
-      </ion-col>
-      <ion-col size-md="2" size-lg="2" size-xs="2">
-        <ion-button (click)="presentModal(activitie)">
-          <ion-icon name="eye"></ion-icon>
-        </ion-button> 
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  
+    <div *ngIf="role_id==2">
+      <ion-row *ngFor="let activitie of activities" class="ion-justify-content-center">
+        <ion-col size="10">
+          <div>
+            {{activitie.name}}
+          </div>
+        </ion-col>
+        <ion-col size-md="2" size-lg="2" size-xs="2">
+          <ion-button (click)="presentModal(activitie)">
+            <ion-icon name="eye"></ion-icon>
+          </ion-button> 
+        </ion-col>      
+      </ion-row>
+    </div>
+    <div *ngIf="role_id==3">
+      <ion-row *ngFor="let activitie of activities" class="ion-justify-content-center">
+        <ng-container *ngFor="let activitieUser of activities_user">
+          <ng-container *ngIf="activitieUser.activity_id == activitie.id && activitieUser.user_id == id_user">
+            <ion-col size="10">
+              <div>
+                {{activitie.name}}
+              </div>
+            </ion-col>
+            <ion-col size-md="2" size-lg="2" size-xs="2">
+              <ion-button (click)="presentModal(activitie)">
+                <ion-icon name="eye"></ion-icon>
+              </ion-button> 
+            </ion-col>
+          </ng-container>
+        </ng-container>      
+      </ion-row>
+    </div>
+  </ion-grid>  
 </ion-content>

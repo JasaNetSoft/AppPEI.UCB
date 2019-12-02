@@ -16,15 +16,26 @@ import { Activities } from './activities';
   styleUrls: ['./activities.page.scss'],
 })
 export class ActivitiesPage implements OnInit {
+  id_user: number;
+  role_id: number;
   id: string;
   name: string;
   activities: any;
+  activities_user: any;
+  users: any;
   constructor(
     private route: ActivatedRoute,
     private activitiesService: ActivitiesService,
     private storage: Storage,
     public modalController: ModalController,
-  ) { }
+  ) { 
+    this.storage.get("role_id").then((role_id)=>{
+      this.role_id = role_id;
+    }); 
+    this.storage.get("id").then((id)=>{
+      this.id_user = id;
+    }); 
+  }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -39,6 +50,8 @@ export class ActivitiesPage implements OnInit {
       this.activitiesService.getActivitiesIndicator(ACCESS_TOKEN,this.id)
         .subscribe((data)=>{
           this.activities = data[0];
+          this.activities_user = data[1];
+          this.users = data[2];
           
         });
     });
@@ -46,11 +59,14 @@ export class ActivitiesPage implements OnInit {
 
   
   async presentModal(activitie: Activities) {
+    console.log(JSON.stringify(this.activities_user)+"-------------------**********");
     const modal = await this.modalController.create({
       component: ModalPage,
       cssClass: 'my-custom-modal-css',
       componentProps: {
         'activitie': activitie,
+        'activities_user': this.activities_user,
+        'users': this.users
       }
     });
     return await modal.present();

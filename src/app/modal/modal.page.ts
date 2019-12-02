@@ -4,6 +4,7 @@ import { Activities } from '../activities/activities';
 import { DtcCareers } from '../dtc-careers/dtc-careers';
 import { Teachers } from '../teachers/teachers';
 import { Tracing } from '../tracing/tracing';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-modal',
@@ -15,6 +16,8 @@ export class ModalPage implements OnInit {
   @Input() dtcCareer: DtcCareers;
   @Input() teacher: Teachers;
   @Input() tracing: Tracing;
+  @Input() activities_user: any;
+  @Input() users: any;
   
   constructor(
     public modalController: ModalController,
