@@ -23,6 +23,8 @@ export class ActivitiesPage implements OnInit {
   activities: any;
   activities_user: any;
   users: any;
+  notifications_user: any;
+
   constructor(
     private route: ActivatedRoute,
     private activitiesService: ActivitiesService,
@@ -52,20 +54,22 @@ export class ActivitiesPage implements OnInit {
           this.activities = data[0];
           this.activities_user = data[1];
           this.users = data[2];
+          this.notifications_user = data[3];
         });
     });
   }
 
-  
   async presentModal(activitie: Activities) {
     console.log(JSON.stringify(this.activities_user)+"-------------------**********");
+    console.log(JSON.stringify(this.notifications_user)+"-------------------**********");
     const modal = await this.modalController.create({
       component: ModalPage,
       cssClass: 'my-custom-modal-css',
       componentProps: {
         'activitie': activitie,
         'activities_user': this.activities_user,
-        'users': this.users
+        'users': this.users,
+        'notifications_user':  this.notifications_user
       }
     });
     return await modal.present();

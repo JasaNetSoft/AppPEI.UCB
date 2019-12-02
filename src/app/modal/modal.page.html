@@ -55,15 +55,27 @@
         Encargados: 
       </ion-col>
       <ion-col size="6">
-        <div *ngFor="let activitieUser of activities_user">
-          <div *ngIf="activitieUser.activity_id == activitie.id ">
-            <div *ngFor="let user of users">
-              <div *ngIf="user.id == activitieUser.user_id ">
+        <ng-container *ngFor="let activitieUser of activities_user">
+          <ng-container *ngIf="activitieUser.activity_id == activitie.id ">
+            <ng-container *ngFor="let user of users">
+              <ng-container *ngIf="user.id == activitieUser.user_id ">
                 {{user.name}}
-              </div>
-            </div>
-          </div>
-        </div>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Notificaciones:
+      </ion-col>
+      <ion-col size="12">
+        <ng-container *ngFor="let notification of notifications_user">
+          <ng-container *ngIf="notification.id == activitie.notification_id">
+            {{notification.affair}} Fecha y hora de alarma: {{notification.date}} {{notification.hour| slice :11 :16 }}
+          </ng-container>
+        </ng-container>
       </ion-col>
     </ion-grid>
   </div>
@@ -144,20 +156,32 @@
       </ion-col>
     </ion-grid>
     <ion-grid>
-        <ion-col size="6">
-          Encargados: 
-        </ion-col>
-        <ion-col size="6">
-          <div *ngFor="let activitieUser of activities_user">
-            <div *ngIf="activitieUser.activity_id == tracing.id ">
-              <div *ngFor="let user of users">
-                <div *ngIf="user.id == activitieUser.user_id ">
-                  {{user.name}}
-                </div>
-              </div>
-            </div>
-          </div>
-        </ion-col>
-      </ion-grid>
+      <ion-col size="6">
+        Encargados: 
+      </ion-col>
+      <ion-col size="6">
+        <ng-container *ngFor="let activitieUser of activities_user">
+          <ng-container *ngIf="activitieUser.activity_id == tracing.id ">
+            <ng-container *ngFor="let user of users">
+              <ng-container *ngIf="user.id == activitieUser.user_id ">
+                {{user.name}}
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ion-col>
+    </ion-grid>
+    <ion-grid>
+      <ion-col size="12">
+        Notificaciones:
+      </ion-col>
+      <ion-col size="12">
+        <ng-container *ngFor="let notification of notifications_user">
+          <ng-container *ngIf="notification.id == tracing.notification_id">
+            {{notification.affair}} Fecha y hora de alarma:{{notification.date}}  {{notification.hour| slice :11 :16 }}
+          </ng-container>
+        </ng-container>
+      </ion-col>
+    </ion-grid>
   </div>
 </ion-content>

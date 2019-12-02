@@ -24,6 +24,7 @@ export class TracingPage implements OnInit {
   tracings: any;
   activities_user: any;
   users: any;
+  notifications_user: any;
 
   constructor(
     private tracingService: TracingService,
@@ -73,6 +74,7 @@ export class TracingPage implements OnInit {
           this.tracings = data[0];
           this.activities_user = data[1];
           this.users = data[2];
+          this.notifications_user = data[3];
           if(this.tracings.length == 0){
             this.tracings = null
           }
@@ -87,7 +89,8 @@ export class TracingPage implements OnInit {
       componentProps: {
         'tracing': tracing,
         'activities_user': this.activities_user,
-        'users': this.users
+        'users': this.users,
+        'notifications_user':  this.notifications_user
       }
     });
     return await modal.present();

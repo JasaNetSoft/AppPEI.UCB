@@ -6,4 +6,5 @@ export interface Activities {
   evidence: string,
   fulfillment: string,
   observation: string,
+  notification_id: number
 } 

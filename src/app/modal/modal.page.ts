@@ -18,6 +18,7 @@ export class ModalPage implements OnInit {
   @Input() tracing: Tracing;
   @Input() activities_user: any;
   @Input() users: any;
+  @Input() notifications_user: any;
   
   constructor(
     public modalController: ModalController,
