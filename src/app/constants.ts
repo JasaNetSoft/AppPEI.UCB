@@ -1,1 +1,1 @@
-export const AUTH_SERVER_ADDRESS:  string  =  'https://sistemapei.herokuapp.com';
+export const AUTH_SERVER_ADDRESS:  string  =  'https://sistemapei.herokuapp.com/';

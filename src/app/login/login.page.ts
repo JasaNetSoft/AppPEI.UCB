@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
         (res)=>{
           this.router.navigateByUrl('home');
         }, (error)=> {
-          this.message = "correo o contraseña incorrecta"
+          this.message = "correo o contraseña incorrecta o usuario deshabilitado"
         }
       );
   }
