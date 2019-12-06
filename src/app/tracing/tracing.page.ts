@@ -83,6 +83,9 @@ export class TracingPage implements OnInit {
   }
 
   async presentModal(tracing: Tracing) {
+    console.log(JSON.stringify(this.activities_user)+"-------------------**********");
+    console.log(JSON.stringify(this.notifications_user)+"-------------------**********");
+    
     const modal = await this.modalController.create({
       component: ModalPage,
       cssClass: 'my-custom-modal-css',
