@@ -1,1 +1,1 @@
-export const AUTH_SERVER_ADDRESS:  string  =  'http://192.168.115.130:3000/';
+export const AUTH_SERVER_ADDRESS:  string  =  'https://sistemapei.herokuapp.com/';
